@@ -92,6 +92,11 @@ li {
 .mail-box {
   border: 2px solid white;
   padding: 20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 20px;
+  display: inline-block;
 }
 
 form {
