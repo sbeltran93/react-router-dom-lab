@@ -5,16 +5,20 @@ function MailboxForm() {
     const [boxSize, setBoxSize] = useState('');
     const [boxholder, setBoxholder] = useState('');
 
+const onCreateMailbox = (newMailbox) => {
+    console.log('New Mailbox Created', newMailbox)
+}    
+
 const handleSubmit = (event) => {
     event.preventDefault();
     const newMailbox = {
+        _id: Date.now(),
         boxholder,
         boxSize,
-        id: Date.now(),
-    }
+    };
     onCreateMailbox(newMailbox);
-    boxholder('')
-    boxSize('small')
+    setBoxholder('');
+    setBoxSize('Small');
 }
 return (
     <form onSubmit={handleSubmit}>
