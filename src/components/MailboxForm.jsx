@@ -1,13 +1,10 @@
 import { useState } from "react";
-import NavBar from "./NavBar";
+import { useNavigate } from "react-router-dom";
 
-function MailboxForm() {
-    const [boxSize, setBoxSize] = useState('');
+function MailboxForm({addBox}) {
+    const navigate = useNavigate();
+    const [boxSize, setBoxSize] = useState('Small');
     const [boxholder, setBoxholder] = useState('');
-
-const onCreateMailbox = (newMailbox) => {
-    console.log('New Mailbox Created', newMailbox)
-}    
 
 const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,9 +13,10 @@ const handleSubmit = (event) => {
         boxholder,
         boxSize,
     };
-    onCreateMailbox(newMailbox);
+    addBox(newMailbox);
     setBoxholder('');
-    setBoxSize('Small');
+    setBoxSize('');
+    navigate('/mailboxes');
 }
 return (
     <form onSubmit={handleSubmit}>
@@ -32,14 +30,14 @@ return (
                 required />
         </div>
         <div>
-            <label htmlFor="boxsize">Box Size:</label>
+            <label htmlFor="boxSize">Box Size:</label>
              <select
                 id="boxSize"
                 value={boxSize}
                 onChange={(e) => setBoxSize(e.target.value)}>
-                <option value='Small'>Small</option>
-                <option value='Medium'>Medium</option>
-                <option value='Large'>Large</option>
+                    <option value='Small'>Small</option>
+                    <option value='Medium'>Medium</option>
+                    <option value='Large'>Large</option>
             </select>
         </div>
         <button type="submit">Create a Mailbox</button>
