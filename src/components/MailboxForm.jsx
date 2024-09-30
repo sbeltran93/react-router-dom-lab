@@ -20,7 +20,8 @@ const handleSubmit = (event) => {
 }
 return (
     <form onSubmit={handleSubmit}>
-        <div>
+        <h2>Create a Mailbox</h2>
+        <div className="form-control">
             <label htmlFor="boxholder">Box Holder Name:</label>
             <input
                 type="text"
@@ -29,7 +30,7 @@ return (
                 onChange={(e) => setBoxholder(e.target.value)}
                 required />
         </div>
-        <div>
+        <div className="form-control">
             <label htmlFor="boxSize">Box Size:</label>
              <select
                 id="boxSize"

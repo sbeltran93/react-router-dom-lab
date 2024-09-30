@@ -7,17 +7,15 @@ const MailboxList = ({mailboxes}) => {
             return <p> No mailboxes to show. </p>
         }
     return (
-        <ul>
+        <div className="mailbox-list">
+            <h1>Current Mailboxes</h1>
             {mailboxes.map((mailbox) => (
-
                 <div key={mailbox._id} className="mail-box">
-                    <h2>Box {mailbox._id}</h2>
-                    <h2>Size: {mailbox.boxSize}</h2>
-                    <p>Mailbox holder Name: {mailbox.boxholder}</p>
+                    <h2>Mailbox Id: {mailbox._id}</h2>
                     <Link to={`/mailboxes/${mailbox._id}`}>View Details</Link>
                 </div>
             ))}
-        </ul>
+        </div>
     )
 }
 
